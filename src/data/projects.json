@@ -1,0 +1,55 @@
+{
+  "projects":[
+    {
+      "title": "SkillTounsi",
+      "imageUrl": "https://github.com/inestmimi4/E-learning_project/blob/main/img.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/E-learning_project",
+      "description": "Welcome to the Online Learning Platform! This project is a comprehensive e-learning application .",
+
+
+      "tags": [ "angular", "nodejs","express js" ]
+    },
+    {
+      "title": "Interview Question Generation",
+      "imageUrl": "https://github.com/inestmimi4/interview_question_generation/blob/main/img2.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/interview_question_generation",
+      "description": "Welcome to the Interview Question Generation! This project is a platform to generate questions from CVs.\",  .",
+      "tags": [ "angular", "elysiajs", "nodejs" ]
+    },
+    {
+      "title": "ChatBot",
+      "imageUrl": "https://github.com/inestmimi4/chatbot/blob/main/img.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/chatbot",
+      "description": "Lets discuss with ou chatbot this is a simple ChatBot using Python with interface by streamlit  .",
+      "tags": [ "streamlit", "python" ]
+    },
+    {
+      "title": "EmotionDetection",
+      "imageUrl": "https://github.com/inestmimi4/EmotionDetection/blob/main/img6.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/EmotionDetection",
+      "description": "Welcome to the Emotion Detection! This project is  to detect emotions from images   .",
+      "tags": [ "python", "jupyter" ]
+    },
+    {
+      "title": "SnaPharm",
+      "imageUrl": "https://github.com/inestmimi4/PharmacyManagement/blob/main/demo_images/2.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/PharmacyManagement",
+      "description": "The Pharmacy Management System is a Java-based application designed to manage various aspects of a pharmacy, including managing medications, clients, and purchases",
+      "tags": [ "MySql", "maven", "JavaFx" ]
+    },
+    {
+      "title": "Portfolio",
+      "imageUrl": "",
+      "project_url": "https://github.com/Benrobo/Rapyd-Payment-app",
+      "description": "Payment Infrastructure application powered by Rapyd API.",
+      "tags": [ "react", "nodejs", "rapyd api" ]
+    },
+    {
+      "title": "Tymonial",
+      "imageUrl": "https://raw.githubusercontent.com/Benrobo/tymonial-app/main/github-img/formUI.png",
+      "project_url": "https://github.com/Benrobo/tymonial-app",
+      "description": "An easy way to collect users feedback into yout web app.",
+      "tags": [ "react", "nodejs", "linode server" ]
+    }
+  ]
+}

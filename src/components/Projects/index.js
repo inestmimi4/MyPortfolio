@@ -1,0 +1,124 @@
+import { useEffect, useState } from "react";
+import CustomLink from "../CustomLink";
+import { FaStar } from "react-icons/fa";
+import { AiFillGithub } from "react-icons/ai";
+import "../app"
+import { projects } from "../../data/projects.json";
+import userInfo from "../../data/usersInfo.json";
+
+function Projects() {
+    const [repo, setRepo] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    async function fetchRepos() {
+        let res;
+        let url = `https://api.github.com/users/${userInfo.github_username}/repos`;
+        if (localStorage.getItem("user_repos") === null) {
+            try {
+                setLoading(true);
+                res = await fetch(url);
+                let data = await res.json();
+                setLoading(false);
+                if (data && data.length > 0) {
+                    localStorage.setItem("user_repo", JSON.stringify(data));
+                    setRepo(data);
+                    return;
+                }
+                setLoading(false);
+                setError(`No github repos found.`);
+            } catch (err) {
+                console.error(`FAILED: ${err.message}`);
+                setLoading(false);
+                setError(`Failed fetching repo: ${err.message}`);
+            }
+        }
+
+        let userReopos = JSON.parse(localStorage.getItem("user_repos"));
+        setRepo(userReopos);
+    }
+
+    useEffect(() => {
+        (async () => {
+            await fetchRepos();
+        })();
+    }, []);
+
+    return (
+        <div className={`projectCont w-full h-auto relative top-[50px] p-10px flex flex-col items-center justify-center mb-[50px]`}>
+            <div className={`w-full flex flex-row items-center justify-center`}>
+                <span data-aos="zoom-in" className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}></span>
+                <p data-aos="fade-up" className={`text-white-200 text-[15px]`}>Latest Works</p>
+                <span data-aos="zoom-in" className={`w-[100px] h-[2px] rounded-[30px] m-[20px] bg-green-200 md:w-[120px]`}></span>
+                <CustomLink href="/projects">
+                    <a data-aos="zoom-in-up" className={`text-center text-green-200 underline absolute top-[50px] text-[14px]`}>All Projects</a>
+                </CustomLink>
+            </div>
+            <div className={`projects w-full h-auto p-3 flex flex-row flex-wrap items-center justify-between mb-[50px]`}>
+                {projects.length > 0 ? projects.slice(0, 6).map((list, i) => (
+                    <div data-aos="zoom-in" key={i} className={`box w-full h-auto bg-dark-200 rounded-[5px] relative top-[50px] transition-all mb-[50px] mr-[5px] opacity-[.7] md:w-[250px] hover:opacity-[1]`}>
+                        <div className="imgCont"></div>
+                        <style jsx>{`
+                            .imgCont {
+                                width: 100%;
+                                height: 190px;
+                                background-image: url(${list.imageUrl === "" || list.imageUrl === null ? "https://www.wallpapertip.com/wmimgs/136-1369543_laptop-coding.jpg" : list.imageUrl});
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                border-radius: 5px;
+                            }
+                        `}</style>
+                        <div className={`w-full p-[10px] bottom-[5px]`}>
+                            <div className="w-full h-auto">
+                                <p className={`text-[15px] text-white-200`}>{list.title === "" ? "Project Title" : list.title}</p>
+                                <br />
+                                <small>{list.description === "" ? "some dummy description" : list.description}</small>
+                            </div>
+                            <br />
+                            <div className={`bottom-[5px] left-[5px] p-0 flex items-start justify-start`}>
+                                <FaStar className="text-yellow-500" />
+                                <span className="ml-2 text-white-200">{list.stars}</span>
+                            </div>
+                            <span className={`absolute my-[-20px] right-[10px] text-[12px] flex items-center justify-start`}>
+                                <AiFillGithub className="text-white-200" />
+                                <span className="ml-2 text-white-200">{list.forks}</span>
+                            </span>
+                        </div>
+                    </div>
+                )) : ""}
+            </div>
+            <div className="w-full h-auto mt-4 mb-5 p-3 flex flex-row flex-wrap items-center justify-between ">
+                {loading ? "Loading..." : error !== null ? <p>{error}</p> : <GithubRepo repos={repo} />}
+            </div>
+        </div>
+    );
+}
+
+export default Projects;
+
+function GithubRepo({ repos }) {
+    return (
+        <>
+            {repos.map((repo, index) => (
+                <div key={index} className="repo">
+                    <h3>{repo.name}</h3>
+                    <p>{repo.description}</p>
+                </div>
+            ))}
+        </>
+    );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function StarRatings({ count = 1, size = 3, title = "star" }) {
+    return (
+        <>
+            {Array.from({ length: count }).map((_, i) => (
+                <FaStar key={i} size={size} className="text-yellow-500" />
+            ))}
+            <small className="ml-2 text-white-200 font-extrabold">{count}</small>
+            <small className="ml-2 text-white-200">{title}</small>
+        </>
+    );
+}
