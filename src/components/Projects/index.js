@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CustomLink from "../CustomLink";
-import { FaStar } from "react-icons/fa";
+import {FaArrowRight, FaStar} from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
 import "../app"
 import { projects } from "../../data/projects.json";
@@ -98,27 +98,60 @@ function Projects() {
 export default Projects;
 
 function GithubRepo({ repos }) {
+
     return (
         <>
-            {repos.map((repo, index) => (
-                <div key={index} className="repo">
-                    <h3>{repo.name}</h3>
-                    <p>{repo.description}</p>
-                </div>
-            ))}
+            {
+                repos.length > 0 ?
+                    repos.slice(0, 3).map((rep, i) => {
+                        return (
+                            <div data-aos="zoom-in" key={i} className="relative w-full h-[180px] bg-dark-200 flex flex-col items-start justify-start px-4 py-3 mt-2 rounded-md md:w-[300px] ">
+                                <h2 className="w-full text-[20px] ">{rep.name}</h2>
+                                <br />
+                                <p className=" w-full text-[15px] text-white-300 ">{rep.description && rep.description.length > 50 ? rep.description.slice(0, 60) + "...." : rep.description}</p>
+                                <br />
+                                <div className="ratings absolute bottom-4 w-full flex flex-row items-start justify-start">
+                                    <span className="mr-2 flex flex-row items-start justify-start">
+                                        <StarRatings title="star" count={rep.stargazers_count} />
+                                    </span>
+                                    <span className="mr-2 flex flex-row items-start justify-start">
+                                        <StarRatings title="fork" count={rep.forks} />
+                                    </span>
+                                </div>
+
+                                <a href={rep.html_url} target={"_blank"} className="absolute right-3 top-2 flex flex-row items-center">
+                                    <small className="underline">View</small>
+                                    <FaArrowRight className="ml-2 text-[12px] " />
+                                </a>
+                            </div>
+                        )
+                    })
+                    :
+                    "Opps, No Github Repo was found."
+            }
         </>
-    );
+    )
 }
+
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function StarRatings({ count = 1, size = 3, title = "star" }) {
+
     return (
         <>
-            {Array.from({ length: count }).map((_, i) => (
-                <FaStar key={i} size={size} className="text-yellow-500" />
-            ))}
+            {
+                title === "star" ?
+
+                    Array(1).fill(1).map((i) => {
+                        return (
+                            <FaStar key={i * Math.floor(Math.random() * 1000)} className={`text-green-200 text-[${size}px] `} />
+                        )
+                    })
+                    :
+                    <AiFillGithub className={`text-green-200 text-[${size}px] `} />
+            }
             <small className="ml-2 text-white-200 font-extrabold">{count}</small>
             <small className="ml-2 text-white-200">{title}</small>
         </>
-    );
+    )
 }

@@ -90,7 +90,6 @@ function ContactForm({ contactActive, closeContactForm }) {
             message
         };
 
-        // check if EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY isnt empty
 
         if (EMAILJS_TEMPLATE_ID === "" || EMAILJS_SERVICE_ID === "" || EMAILJS_PUBLIC_KEY === "") {
             console.error(`

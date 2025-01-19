@@ -28,7 +28,7 @@ function Layout({ children }) {
             </Header>
             {children}
             {windowWidth <= 700 && <ResponsiveNavbar />}
-            {/* <Footer /> */}
+
         </div>
     )
 }

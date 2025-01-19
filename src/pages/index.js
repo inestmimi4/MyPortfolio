@@ -5,11 +5,12 @@ import Quote from "../components/Quotes";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import DomHead from "../components/Head";
-import { useEffect } from "react";
+import React, {useEffect} from "react";
 import Aos from "aos";
 import { DataContextProvider } from "../context/DataContext";
 import Container from "../components/Container";
 import GithubContributions from "../components/githubContributions";
+
 
 export default function HomePage() {
 
@@ -22,14 +23,15 @@ export default function HomePage() {
             <DomHead />
             <Layout>
                 <Container>
-                    <Intro />
-                    <GithubContributions username="inestmimi4" />
-                    <Projects />
-                    <Quote />
-                    <Contact />
+                    <Intro/>
+                    <GithubContributions username="inestmimi4"/>
+                    <Projects/>
+                    <Quote/>
+                    <Contact/>
                 </Container>
-                <Footer />
+                <Footer/>
             </Layout>
         </DataContextProvider>
     );
 }
+

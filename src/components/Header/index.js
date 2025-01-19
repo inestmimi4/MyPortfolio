@@ -3,6 +3,7 @@ import Container from "../Container"
 import usersInfo from "../../data/usersInfo.json"
 import languages from "../../data/languages.json"
 
+
 export default function Header({ children }) {
     const [resumeActive, setResumeActive] = useState(false)
     const [reposcount, setReposCount] = useState(0)
@@ -44,10 +45,10 @@ export default function Header({ children }) {
     }, [])
 
     return (
-        <header className={`header w-full h-[100vh] relative bg-dark-200 md:h-auto`}>
+        <header className={`header w-full h-[200vh] relative bg-dark-200 md:h-auto`}>
             <Container>
                 {children}
-                <div className={`w-full h-[70vmin] flex align-center items-center justify-center flex-row p-[20px] flex-wrap mt-[50px]`}>
+                <div className={`w-full h-[70min] flex align-center items-center justify-center flex-row p-[20px] flex-wrap mt-[50px]`}>
                     <div className={`w-full h-full mb-[50px] relative md:w-[50%]`}>
                         <div className={``}>
                             <span data-aos="fade-up" className={`py-[2px] px-[8px] bg-green-600 text-green-100 rounded-[3px] text-[12px] text-capitalize  `}>
@@ -67,10 +68,10 @@ export default function Header({ children }) {
                         <div className={`relative top-[50px] flex align-start items-start justify-start w-full`}>
                             <div data-aos="zoom-in-left" className={`w-[50%] mr-[20px] flex flex-row items-center justify-start`}>
                                 <h1 className={` text-[35px] pt-[10px] pr-[10px] pb-0 pl-0 `}>
-                                    {(new Date().getFullYear() - parseInt(usersInfo.tech_year)) + 1}
+                                    {usersInfo.tech_year }
                                 </h1>
                                 <span className={` w-[50px] text-white-300 text-[10px] `}>
-                                    Years of Experience
+                                    year of engineering cycle
                                 </span>
                             </div>
                             <div data-aos="zoom-in-right" className={`w-[50%] mr-[20px] flex flex-row items-center justify-start`}>
@@ -114,11 +115,11 @@ export default function Header({ children }) {
 }
 
 function ResumeViewer({ openResume }) {
-    function dowloadCv() {
-        let link = document.createElement("a")
-        link.href = resume;
-        link.download = "resume.pdf"
-        link.click()
+    function downloadCv() {
+        let link = document.createElement("a");
+        link.href = '/CV/resume.pdf'; // Ensure this path is correct
+        link.download = "resume";
+        link.click();
     }
 
     return (
@@ -126,14 +127,11 @@ function ResumeViewer({ openResume }) {
             <div id="box" className="w-[100%] h-[99%] mx-auto bg-dark-100 overflow-hidden rounded-md md:w-[70%]">
                 <div id="head" className="w-full h-auto p-3 bg-dark-200 flex items-start justify-start">
                     <h2>My Resume / CV</h2>
-                    <button className="px-3 py-1 flex flex-row items-center justify-center bg-green-300 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95]  " onClick={dowloadCv}>Download</button>
-                    <button className="px-3 py-1 flex flex-row items-center justify-center bg-red-500 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95] " onClick={openResume}>Close</button>
+                    <button className="px-3 py-1 flex flex-row items-center justify-center bg-green-300 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95]" onClick={downloadCv}>Download</button>
+                    <button className="px-3 py-1 flex flex-row items-center justify-center bg-red-500 ml-4 text-[12px] text-dark-300 font-bold rounded-[5px] scale-[.90] transition-all hover:scale-[.95]" onClick={openResume}>Close</button>
                 </div>
-                <iframe src={"/CV/resume.pdf"} frameBorder="0" className="w-full h-full overflow-scroll bg-white-200 mt-0"></iframe>
-                <br />
-                <br />
-                <br />
+                <iframe src="/CV/resume.pdf" frameBorder="0" className="w-full h-full overflow-scroll bg-white-200 mt-0"></iframe>
             </div>
         </div>
-    )
+    );
 }

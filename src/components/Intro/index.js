@@ -11,7 +11,7 @@ export default function Intro() {
                     <IntroCards data={skills.skill} />
                 </div>
                 <div className={`w-full h-auto relative top-[20px] p-[10px] mb-[30px] md:mb-0 md:w-[45%]`}>
-                    <p className={`text-[12px] text-white-200 `}>Introduce</p>
+                    <p className={`text-[14px] text-white-200  font-bold `}>Introduce</p>
                     <div className={`relative top-[20px]`}>
                         <h1 data-aos="zoom-in-up" className={`text-[35px] font-bold mb-[20px]`}>
                             {usersInfo.greeting_type}  I&#39;m {usersInfo.full_name}.
@@ -50,8 +50,8 @@ function IntroCards({ data }) {
                         </span>
                     </div>
                     <div className={`absolute bottom-[10px]`}>
-                        <span className={` text-[14px] text-white-200 font-bold underline `}>
-                            {skill.projects_completed} Projects
+                        <span className={` text-[14px] text-white-200 font-bold  `}>
+                            {skill.projects_completed}
                         </span>
                     </div>
                     <ion-icon name="color-wand" class={`absolute top-[10px] right-[10px] text-green-400 p-[5px] `}></ion-icon>

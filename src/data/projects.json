@@ -40,16 +40,23 @@
     {
       "title": "Portfolio",
       "imageUrl": "",
-      "project_url": "https://github.com/Benrobo/Rapyd-Payment-app",
-      "description": "Payment Infrastructure application powered by Rapyd API.",
-      "tags": [ "react", "nodejs", "rapyd api" ]
+      "project_url": "https://github.com/inestmimi4/MyPortfolio",
+      "description": "Welcome .",
+      "tags": [ "react", "nextjs" ]
     },
     {
-      "title": "Tymonial",
-      "imageUrl": "https://raw.githubusercontent.com/Benrobo/tymonial-app/main/github-img/formUI.png",
-      "project_url": "https://github.com/Benrobo/tymonial-app",
-      "description": "An easy way to collect users feedback into yout web app.",
-      "tags": [ "react", "nodejs", "linode server" ]
+      "title": "app-cui",
+      "imageUrl": "https://github.com/inestmimi4/app-cui/blob/main/6.png?raw=true",
+      "project_url": "https://github.com/inestmimi4/app-cui",
+      "description": "Welcome to the app-cui! This project is a simple application to manage a restaurant.",
+      "tags": [  "html", "php" ]
+    },
+    {
+      "title": "Tetris",
+      "imageUrl": "https://github.com/inestmimi4/Tetris/blob/main/4.png?raw=true",
+      "project_url": "https://github.com/inestmimi4",
+      "description": "Welcome to the Tetris! This project is a simple game of Tetris.",
+      "tags": [  "html", "Jquery" ]
     }
   ]
 }

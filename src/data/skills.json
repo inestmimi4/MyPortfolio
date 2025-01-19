@@ -1,10 +1,13 @@
 {"skill":[
   {"name":"Frontend Engineering",
-    "description":"Development of beautiful and unique user interfaces.",
-    "projects_completed":"60"},
+    "description":"Building interactive and user-friendly interfaces using modern web technologies.",
+    "projects_completed":"Small web apps, UI components, responsive design."},
   {"name":"Backend Development",
-    "description":"Development of complex and scalable backend architecture.",
-    "projects_completed":"100"}
-,{"name":"Database Design",
-    "description":"Development and Designing of complex scalable database achitecture.",
-    "projects_completed":"30"}]}
+    "description":"Designing and implementing backend logic to support web applications.",
+    "projects_completed":"API development, authentication, server-side logic."}
+,{"name":"Software Engineering Foundations",
+    "description":"Applying problem-solving, algorithms, and best practices to software development.",
+    "projects_completed":" Object-oriented programming, version control (Git), clean code principles."
+  }
+]
+}

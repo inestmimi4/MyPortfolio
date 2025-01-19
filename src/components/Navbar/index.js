@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import CustomLink from "../CustomLink";
-import { FaGithub, FaTwitter } from "react-icons/fa";
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import usersInfo from "../../data/usersInfo.json";
-import socials from "../../data/socials.json";
+import { socials } from "../../data/socials.json"
 import avatar from "../../public/images/avatar/avatar.png";
 
 function NavBar() {
@@ -14,7 +14,7 @@ function NavBar() {
         <React.Fragment>
             <div className={`navbar relative h-auto w-full flex align-center justify-between py-[20px]`}>
                 <div className={`left w-auto flex align-start items-start justify-start px-[10px] `}>
-                    <p className={`font-extrabold mr-[20px]`}>{usersInfo.github_username.charAt(0).toUpperCase() + usersInfo.github_username.slice(1)}</p>
+                    <p className={`font-extrabold mr-[20px]`}>{usersInfo.full_name.charAt(0).toUpperCase() + usersInfo.full_name.slice(1)}</p>
                     <ul className={`relative ml-[10px] hidden md:flex`}>
                         <li className={`mt-[5px] mr-[10px] mb-[0px] ml-[10px] transition-all hover:text-green-100 hover:font-extrabold cursor-pointer text-[12px]`}>
                             <CustomLink href="/">Home</CustomLink>
@@ -33,22 +33,33 @@ function NavBar() {
                 <div className={`relative right w-[50vmin] hidden md:flex `}>
                     <ul className={`flex flex-row align-center justify-between items-center`}>
                         {socials["twitter"] !== "" &&
-                            <a href={socials["twitter"]} target="_blank" className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
-                                <FaTwitter />
+                            <a href={socials["linkedin"]} target="_blank"
+                               className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
+                                <FaLinkedin className={`mr-[10px] `}/>
+                                <small>Linkedin</small>
                             </a>}
+
                         {socials["github"] !== "" &&
-                            <a href={socials["github"]} target="_blank" className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
-                                <FaGithub />
+                            <a href={socials["github"]} target="_blank"
+                               className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
+                                <FaGithub className={`mr-[10px] `}/>
+                                <small>Github</small>
                             </a>}
+
                         {socials["email"] !== "" &&
-                            <a href={`mailto:${socials["email"]}`} className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
-                                <FiMail />
+                            <a href={`mailto:${socials["email"]}`}
+                               className={`w-[100px] text-[17px] flex flex-row align-center justify-center items-center decoration-none  hover:text-white `}>
+                                <FiMail className={`mr-[10px] `}/>
+                                <small>Email</small>
                             </a>}
+
                     </ul>
                 </div>
                 <div className={`absolute top-[15px] right-[25px] md:hidden `}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={avatar.src} className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}  alt={""}/>
+                    <img src={avatar.src}
+                         className={` w-[40px] rounded-[50%] border-[2px] border-solid border-green-100 bg-dark-100 `}
+                         alt={""}/>
                 </div>
             </div>
         </React.Fragment>
@@ -57,7 +68,7 @@ function NavBar() {
 
 export default NavBar;
 
-export function ResponsiveNavbar({ activePage, pageName = "" }) {
+export function ResponsiveNavbar({activePage, pageName = ""}) {
     const [active, setActive] = useState(activePage || "home");
 
     function handleActive(e) {
@@ -66,12 +77,12 @@ export function ResponsiveNavbar({ activePage, pageName = "" }) {
 
         if (Object.entries(tgt).length === 0) {
             if (Object.entries(parent).length > 0) {
-                let { name } = parent;
+                let {name} = parent;
                 setActive(name);
             }
             return;
         }
-        let { name } = tgt;
+        let {name} = tgt;
         setActive(name);
     }
 
