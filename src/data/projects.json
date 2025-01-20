@@ -7,14 +7,14 @@
       "description": "Welcome to the Online Learning Platform! This project is a comprehensive e-learning application .",
 
 
-      "tags": [ "angular", "nodejs","express js" ]
+      "tags": [ "angular","express js" ]
     },
     {
       "title": "Interview Question Generation",
       "imageUrl": "https://github.com/inestmimi4/interview_question_generation/blob/main/img2.png?raw=true",
       "project_url": "https://github.com/inestmimi4/interview_question_generation",
       "description": "Welcome to the Interview Question Generation! This project is a platform to generate questions from CVs.\",  .",
-      "tags": [ "angular", "elysiajs", "nodejs" ]
+      "tags": [ "angular", "elysiajs" ]
     },
     {
       "title": "ChatBot",
@@ -35,13 +35,13 @@
       "imageUrl": "https://github.com/inestmimi4/PharmacyManagement/blob/main/demo_images/2.png?raw=true",
       "project_url": "https://github.com/inestmimi4/PharmacyManagement",
       "description": "The Pharmacy Management System is a Java-based application designed to manage various aspects of a pharmacy, including managing medications, clients, and purchases",
-      "tags": [ "MySql", "maven", "JavaFx" ]
+      "tags": [ "MySql", "JavaFx" ]
     },
     {
       "title": "Portfolio",
-      "imageUrl": "",
+      "imageUrl": "https://github.com/inestmimi4/MyPortfolio/blob/main/demo.png?raw=true",
       "project_url": "https://github.com/inestmimi4/MyPortfolio",
-      "description": "Welcome .",
+      "description": "Welcome to my portfolio. This project showcases my skills, projects, and achievements in web development.",
       "tags": [ "react", "nextjs" ]
     },
     {
